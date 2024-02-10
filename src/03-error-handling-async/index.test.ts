@@ -12,7 +12,7 @@ describe('resolveValue', () => {
     // Write your test here
     const str: unknown = 'Hello';
     const res = await resolveValue(str);
-    expect(res).toBe(str);
+    expect(res).toStrictEqual(str);
   });
 });
 
