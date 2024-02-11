@@ -71,7 +71,7 @@ describe('readFileAsynchronously', () => {
     // Write your test here
     jest.spyOn(path, 'join');
     expect(path.join).not.toHaveBeenCalled();
-    await readFileAsynchronously('./index.ts');
+    await readFileAsynchronously(' ');
     expect(path.join).toHaveBeenCalled();
   });
 
