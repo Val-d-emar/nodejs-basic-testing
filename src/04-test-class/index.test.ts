@@ -73,7 +73,7 @@ describe('BankAccount', () => {
     const spy = jest.spyOn(acc, 'fetchBalance');
     spy.mockResolvedValue(newBalance);
     await acc.synchronizeBalance();
-    expect(spy).toBeCalled();
+    expect(spy).toHaveBeenCalled();
     expect(acc.getBalance()).toBe(newBalance);
   });
 
