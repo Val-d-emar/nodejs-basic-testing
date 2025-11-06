@@ -1,24 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateLinkedList should generate linked list from values 1 1`] = `
-{
-  "next": {
-    "next": null,
-    "value": null,
-  },
-  "value": "http://ya.ru",
-}
-`;
-
 exports[`generateLinkedList should generate linked list from values 2 1`] = `
 {
   "next": {
     "next": {
-      "next": null,
-      "value": null,
+      "next": {
+        "next": null,
+        "value": null,
+      },
+      "value": "c",
     },
-    "value": "https://jsonplaceholder.typicode.com",
+    "value": "b",
   },
-  "value": "http://ya.ru",
+  "value": "a",
 }
 `;
