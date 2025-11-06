@@ -1,6 +1,6 @@
 // Uncomment the code below and write your tests
 // import axios, { AxiosInstance } from 'axios';
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 // import ladash from 'lodash';
 
 import { throttledGetDataFromApi } from './index';
@@ -29,19 +29,29 @@ describe('throttledGetDataFromApi', () => {
 
   test('should perform request to correct provided url', async () => {
     // Write your test here
-    const relativePath = '/users';
+    // const relativePath = '/users';
+    const relativePath = 'users'; ///
     // const ax = jest.spyOn(axios, 'create');
+    const spy = jest.spyOn(Axios.prototype, 'get'); ///
     await throttledGetDataFromApi(relativePath);
     // const get = jest.spyOn(ax.mock.results[0]?.value, 'get');
     // await throttledGetDataFromApi(relativePath);
     // expect(get).toBeCalled();
     // expect(get).toHaveBeenCalledWith(relativePath);
+    expect(spy).toBeCalledWith(relativePath); ///
   });
 
   test('should return response data', async () => {
     // Write your test here
-    const relativePath = '/users';
-    const data = await throttledGetDataFromApi(relativePath);
-    expect(data).not.toBeUndefined();
+    // const relativePath = '/users';
+    // const data = await throttledGetDataFromApi(relativePath);
+    // expect(data).not.toBeUndefined();
+    const relativePath = 'users'; ///
+    const resp = { data: 'response data' };
+    jest
+      .spyOn(Axios.prototype, 'get')
+      .mockImplementation(() => Promise.resolve(resp));
+    const res = await throttledGetDataFromApi(relativePath);
+    expect(res).toEqual('response data');
   });
 });
